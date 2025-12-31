@@ -8,7 +8,7 @@
     "title": "#0001", 
     "description": "", 
     "image": "thumbnail1.png",
-    "links": {} 
+    "links": {"none": "#"} 
   },
   { 
     "y_start": 0, "y_end": 6, 
@@ -19,7 +19,7 @@
     "title": "#0002", 
     "description": "", 
     "image": "event_img.jpg",
-    "links": {} 
+    "links": {"none": "#"} 
   },
   { 
     "y": 6, 
@@ -30,7 +30,7 @@
     "title": "#0003", 
     "description": "", 
     "image": "", 
-    "links": {} 
+    "links": {"none": "#"} 
   },
   { 
     "y_start": 6, "y_end": 11, 
@@ -41,18 +41,18 @@
     "title": "#0004", 
     "description": "", 
     "image": "sample.png",
-    "links": {} 
+    "links": {"none": "#"} 
   },
   { 
-    "y": 11, 
-    "x": 0, 
+    "y": 14.5, 
+    "x": 20, 
     "date": "2025.XX.XX",
     "time_id": "3-0", 
     "category": "", 
     "title": "#0005", 
     "description": "", 
     "image": "sample.png",
-    "links": {} 
+    "links": {"none": "#"} 
   },
   { 
     "y_start": 11, "y_end": 19, 
