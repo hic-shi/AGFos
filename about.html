@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGFos! - HOME</title>
+    <style>
+        html{
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+}
+
+        body {
+            background-color: #ffd966;
+            color: #d4a017;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        #title {
+            font-size: 50px;
+            color: #ffffff;
+            width: 100%;
+            margin: 0 0 20px 0;
+        }
+
+        .main-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .nav-column {
+            position: fixed;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 1000;
+        }
+
+        .nav-column a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 30px;
+            text-align: center;
+            font-weight: bold;
+            transition: transform 0.2s;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-column a:hover {
+            transform: scale(1.3);
+            color: #7b2cbf;
+        }
+
+        .content-column {
+            flex: 1;
+            width: 100%;
+        }
+
+        .white-box {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        /* Top & Slideshow */
+        #Top {
+            background-color: #e88e4e;
+            border-radius: 20px;
+            padding: 3px;
+            margin-bottom: 50px;
+            width: 100%;
+            position: relative;
+        }
+
+        /* News */
+        #white-box1 {
+            width: 95%; 
+            margin-bottom: 2px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .news-container {
+            display: block;
+            color: #d4a017;
+            text-decoration: none;
+            font-size: 14px;
+            padding-bottom: 5px;
+        }
+
+        span.category {
+            background: #f3c549;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+            margin-right: 8px;
+            display: inline-block;
+        }
+
+        a:link, a:visited {
+            color: #e88e4e;
+        }
+
+
+        /* --- モバイル対応（600px以下） --- */
+        @media(max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            #title {
+                font-size: 36px;
+                text-align: center;
+            }
+
+            .character {
+                flex-direction: column;
+            }
+
+            .nav-column {
+                right: 5px;
+                gap: 10px;
+            }
+
+            .nav-column a {
+                font-size: 20px;
+            }
+
+            #white-box1 {
+                max-width: 94%;
+            }
+        }</style>
+</head>
+
+<body>
+    <h1 id="title">AGFos!</h1>
+
+    <nav class="nav-column">
+        <a href="index.html" title="HOME">●</a>
+        <a href="character.html" title="character">●</a>
+        <a href="about.html" title="about">●</a>
+    </nav>
+
+    <div class="main-container">
+                <div class="white-box" id="white-box1">
+                    <h3 style="margin-top: 0px; margin-bottom: 5px;">news</h3>
+                    <div id="news-container"></div>
+                </div>
+                    <p id="slideshow-image-front"  ></p>
+    </div>
+<script type="text/javascript">
+//右クリック禁止
+document.oncontextmenu = function(){ return false; };
+document.body.oncontextmenu = "return false;"
+
+//ドラッグ禁止
+document.onselectstart = function(){ return false; };
+document.onmousedown = function(){ return false; };
+document.body.onselectstart = "return false;"
+document.body.onmousedown = "return false;"
+</script>
+    <script>
+        // --- News Script ---
+        fetch('news.json').then(res => res.json()).then(data => {
+            const container = document.getElementById('news-container');
+            data.slice(0, 1000000).forEach(item => {
+                const a = document.createElement('a');
+                a.className = 'news-container';
+                a.innerHTML = `${item.date} <span class="category">${item.category}</span> ${item.title}`;
+                a.href = item.url;
+                container.appendChild(a);
+            });
+        }).catch(e => console.log("News file not found."));
+    </script>
+</body>
+
+</html>
