@@ -59,8 +59,7 @@
             right: 10px;
             top: 50%;
             transform: translateY(-50%);
-            display: none;
-            /*display: flex; */
+            display: flex;
             flex-direction: column;
             gap: 20px;
             z-index: 1000;
@@ -637,6 +636,18 @@
             linkList.appendChild(noneTag);
         }
         initDetail();
+    </script>
+    
+    <script type="text/javascript">
+    //右クリック禁止
+    document.oncontextmenu = function(){ return false; };
+    document.body.oncontextmenu = "return false;"
+
+    //ドラッグ禁止
+    document.onselectstart = function(){ return false; };
+    document.onmousedown = function(){ return false; };
+    document.body.onselectstart = "return false;"
+    document.body.onmousedown = "return false;"
     </script>
 </body>
 </html>
