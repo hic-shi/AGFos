@@ -22,12 +22,13 @@
             flex-direction: column;
             align-items: center;
             padding: 20px;
-            margin-left: 10%;
-            width: 78%;
-            font-size: 1.5em;
+            margin: 0;
             overflow-x: hidden;
+            font-size: 1.5em;
         }
-
+        main{
+            width: 78%;
+        }
         hr {
             border: none;
             border-top: 4px solid #f5b719;
@@ -43,9 +44,6 @@
             text-decoration: none;
         }
 
-        #title h1 {
-            margin: 80px 0 50px 0;
-        }
 
         .main-container {
             display: flex;
@@ -90,6 +88,9 @@
             overflow-wrap: anywhere;
             word-break: normal;
             box-sizing: border-box;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
         }
 
         .white-box h3 {
@@ -117,15 +118,7 @@
 
         .character-box-margin {
             margin-bottom: 4%;
-        }
-
-        #AG,
-        #Fos {
-            width: 100%;
-            display: flex;
-            box-sizing: border-box;
-            align-items: flex-start;
-            gap: 20px;
+            display: block; /* wikiボックスはフレックス解除 */
         }
 
         .character img {
@@ -133,11 +126,13 @@
             width: 350px;
         }
 
+        /* --- Image Layout Classes --- */
         /* PCでの画像配置 */
-        #AG img { order: 1; }
-        #AG .characterdescription { order: 2; }
-        #Fos .characterdescription { order: 1; }
-        #Fos img { order: 2; }
+        .image-left img { order: 1; }
+        .image-left .characterdescription { order: 2; }
+
+        .image-right .characterdescription { order: 1; }
+        .image-right img { order: 2; }
 
         .characterdescription {
             flex: 1;
@@ -164,54 +159,52 @@
             padding-bottom: 40px;
         }
 
-        /* --- Responsive (Mobile Optimization) --- */
+        /* --- Mobile --- */
         @media(max-width: 600px) {
-            body {
+            body{
+                padding: 10px;
+            }
+            main {
                 margin-left: 0;
                 width: 100%;
-                padding: 15px;
-                font-size: 0.9rem; /* スマホでは標準サイズに */
+                padding: 0px;
+                font-size: 0.9rem;
                 box-sizing: border-box;
             }
-
             #title h1 {
-                font-size: 40px;
-                text-align: center;
+                margin: 80px 0 50px 0;
+                font-size: 40px; 
             }
 
             .nav-column {
-                right: 5px;
+                right: 0px;
                 gap: 10px;
-                background: rgba(255, 255, 255, 0.2);
                 padding: 10px 5px;
                 border-radius: 20px;
             }
 
             .nav-column a {
-                font-size: 24px;
-                color: rgba(255, 255, 255, 0.8);
+                font-size: 20px;
+                color: rgb(205 123 36 / 57%);
             }
 
             .white-box {
                 padding: 15px;
                 border-radius: 15px;
-            }
-
-            /* キャラクターをスマホでは画像上、テキスト下に固定 */
-            #AG, #Fos {
                 flex-direction: column;
                 align-items: center;
-                text-align: center;
             }
 
-            #AG img, #Fos img {
+            .image-left img, .image-right img {
                 max-width: 70%;
-                order: 1 !important; /* 画像を常に上に */
+                order: 1 !important;
                 margin-bottom: 10px;
             }
-
-            #AG .characterdescription, #Fos .characterdescription {
-                order: 2 !important; /* テキストを常に下に */
+            .character{
+                text-align: center;
+            }
+            .image-left .characterdescription, .image-right .characterdescription {
+                order: 2 !important;
                 width: 100%;
             }
 
@@ -230,7 +223,7 @@
     <a href="index.html" id="title">
         <h1>AGFos!</h1>
     </a>
-
+<main>
     <nav class="nav-column">
         <a href="index.html">●</a>
         <a href="Lore.html">●</a>
@@ -241,14 +234,16 @@
         <div class="content-column">
 
             <div class="white-box character-box-margin">
-                <h3>シーレンス</h3>
-                <p><a class="dis" href="https://scrapbox.io/hic-shi/AGFos">wiki</a><br>
-                    <a class="dis" href="https://hic-shi.github.io/HOME/bunka.html">用語集(25.12.14)</a>
-                </p>
+                <div>
+                    <h3>シーレンス</h3>
+                    <p><a class="dis" href="https://scrapbox.io/hic-shi/AGFos">wiki</a><br>
+                        <a class="dis" href="https://hic-shi.github.io/HOME/bunka.html">用語集(25.12.14)</a>
+                    </p>
+                </div>
             </div>
 
             <div class="character">
-                <div class="white-box" id="AG">
+                <div class="white-box image-left" id="AG">
                     <img src="AG_sprite.png" alt="AG">
                     <div class="characterdescription">
                         <div class="c_name">
@@ -261,8 +256,8 @@
                     </div>
                 </div>
 
-                <div class="white-box" id="Fos">
-                    <div class="characterdescription">
+                <div class="white-box image-right">
+                    <div class="characterdescription" id="Fos">
                         <div class="c_name">
                             <h1 class="name">Fos</h1>
                             <h3 class="sub_name">フォス</h3>
@@ -273,21 +268,31 @@
                     </div>
                     <img src="Fos_sprite.png" alt="Fos">
                 </div>
+                <div class="white-box image-left">
+                    <img src="unknown_sprite.png" alt="mellow">
+                    <div class="characterdescription">
+                        <div class="c_name">
+                            <h1 class="name">mellow</h1>
+                            <h3 class="sub_name">メロウ</h3>
+                        </div>
+                        <p class="full_name">unknown</p>
+                        <hr>
+                        <p>ティカ<br>性別/不明<br>身長/不明<br>年齢/不明<br>誕生日/不明<br>血液型/不明<br><br>キャラクター説明文が入ります。</p>
+                    </div>
+                </div>
             </div>
 
             <div id="by"><a href="https://hic-shi.github.io/HOME/index.html">©HIC_SHI</a></div>
         </div>
     </div>
-
+</main>
     <script type="text/javascript">
         //右クリック禁止
         document.oncontextmenu = function () { return false; };
         //ドラッグ禁止
         document.onselectstart = function () { return false; };
         document.onmousedown = function (e) {
-            if (e.button !== 2) { // 右クリック以外も制限する場合
-                // return false; // 必要に応じてコメントアウトを解除
-            }
+            if (e.button !== 2) { }
         };
     </script>
 </body>
