@@ -7,12 +7,13 @@
     <title>AGFos! - HOME</title>
     <style>
         /* --- Base Layout --- */
-        html{
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-}
+        html {
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+
         body {
             background-color: #ffd966;
             color: #d4a017;
@@ -22,22 +23,22 @@
             align-items: center;
             padding: 20px;
             margin: 0;
-            user-select: none;
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
+            overflow-x: hidden; /* 横揺れ防止 */
         }
+
         hr {
             border: none;
             border-top: 4px solid #f5b719;
             width: 100%;
             margin: 10px 0;
         }
+
         #title {
             font-size: 50px;
             color: #ffffff;
             width: 100%;
             margin: -80px 0 -50px 0;
+            text-decoration: none;
         }
 
         .main-container {
@@ -50,7 +51,7 @@
 
         .content-column {
             flex: 1;
-            order: 1;
+            width: 100%; /* スマホ対応 */
         }
 
         /* --- Navigation --- */
@@ -88,6 +89,7 @@
             margin-bottom: 20px;
             overflow-wrap: anywhere;
             word-break: normal;
+            box-sizing: border-box; /* パディングを含める */
         }
 
         .white-box h3 {
@@ -101,7 +103,8 @@
             margin-bottom: -10px;
         }
 
-        a:link, a:visited {
+        a:link,
+        a:visited {
             color: #e88e4e;
             text-decoration: none;
         }
@@ -125,7 +128,7 @@
             position: relative;
             z-index: 10;
         }
-        
+
         #morenews {
             margin-top: -15px;
         }
@@ -153,8 +156,13 @@
             transition: opacity 1.5s ease-in-out;
         }
 
-        #slideshow-image-front { z-index: 2; }
-        #slideshow-image-back { z-index: 1; }
+        #slideshow-image-front {
+            z-index: 2;
+        }
+
+        #slideshow-image-back {
+            z-index: 1;
+        }
 
         /* --- News --- */
         .news-container {
@@ -178,7 +186,7 @@
             line-height: 1;
         }
 
-        /* --- Character Section (統合修正箇所) --- */
+        /* --- Character Section --- */
         .character {
             display: flex;
             justify-content: space-between;
@@ -189,9 +197,10 @@
         .character-box-margin {
             margin-bottom: 4%;
         }
-        
-        #AG, #Fos {
-            width: 48%; /* PC時に2つ並ぶよう調整 */
+
+        #AG,
+        #Fos {
+            width: 48%;
             display: flex;
             box-sizing: border-box;
             align-items: flex-start;
@@ -205,12 +214,21 @@
             max-width: 40%;
         }
 
-        /* PCレイアウト: AGは左、Fosは右に画像 */
-        #AG img { order: 1; }
-        #AG .characterdescription { order: 2; }
+        #AG img {
+            order: 1;
+        }
 
-        #Fos .characterdescription { order: 1; }
-        #Fos img { order: 2; }
+        #AG .characterdescription {
+            order: 2;
+        }
+
+        #Fos .characterdescription {
+            order: 1;
+        }
+
+        #Fos img {
+            order: 2;
+        }
 
         .characterdescription {
             flex: 1;
@@ -232,7 +250,7 @@
         }
 
         .characterdescription .more {
-            margin-top: auto; 
+            margin-top: auto;
             padding-top: 70px;
         }
 
@@ -244,7 +262,7 @@
         }
 
         .timeline-box {
-            width: 400px;
+            width: 550px;
             flex-shrink: 0;
         }
 
@@ -254,6 +272,7 @@
             margin-top: 30px;
             height: 400px;
             user-select: none;
+            min-width: 300px;
         }
 
         .timeline-line {
@@ -308,6 +327,7 @@
             opacity: 1;
             background-color: #7b2cbf;
         }
+
         #extra-info {
             flex: 1;
             display: block;
@@ -369,77 +389,117 @@
             margin-top: 8%;
             padding-top: 10px;
         }
-        #by{
+
+        #by {
             color: #d4a017;
             text-align: center;
+            padding: 20px 0;
         }
 
-        /* --- Responsive (統合修正) --- */
-
         @media(max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            #title h1 {
+                margin: 80px 0 50px 0;
+                font-size: 40px; 
+            }
+
             #slideshow-container {
-                width: 108%;
-                height: 63vh; 
+                width: 108%; 
+                height: 63vh;
                 margin-top: -23px;
                 margin-bottom: -17px;
-                margin-left: -17px;
-                margin-right: -17px;
+                margin-left: -4%;
+                margin-right: -21px;
             }
-            
+
             .slideshow-image {
                 border-top-left-radius: 0px;
                 border-top-right-radius: 0px;
             }
+
             .nav-column {
-                right: 0px;
-                gap: 2px;
+                right: 5px;
+                gap: 5px;
             }
+
+            .nav-column a {
+                font-size: 20px;
+                color: rgb(205 123 36 / 57%);
+            }
+
             .news-container {
                 padding-bottom: 15px;
+                font-size: 13px;
             }
-            #morenews{
+
+            #morenews {
                 margin-bottom: -18px;
             }
-            .nav-column a { font-size: 24px; color: #ff000094; }
 
-            /* キャラクターセクション スマホ用 */
-            .character { 
-                flex-direction: column; 
-                align-items: center; 
+            .character {
+                flex-direction: column;
+                align-items: center;
             }
-            #AG, #Fos { 
-                width: 100%; 
-                flex-direction: column; 
+
+            #AG,
+            #Fos {
+                width: 100%;
+                flex-direction: column;
                 align-items: center;
                 gap: 10px;
             }
-            /* スマホでは画像を上(order 1)、説明を下(order 2)に固定 */
-            #AG img, #Fos img {
-                max-width: 65%; 
+
+            #AG img,
+            #Fos img {
+                max-width: 80%;
                 margin-bottom: 10px;
                 order: 1 !important;
             }
-            #AG .characterdescription, #Fos .characterdescription {
+
+            #AG .characterdescription,
+            #Fos .characterdescription {
                 width: 100%;
                 max-width: 100%;
                 order: 2 !important;
             }
 
-            #white-box1 { 
-                margin: -4% -4% 6% -4%; 
+            #white-box1 {
+                margin: -4% -4% 6% -4%;
                 border-radius: 16px;
                 border-bottom-left-radius: 0px;
                 border-bottom-right-radius: 0px;
             }
-            .timeline-flex-container{
+            .timeline-flex-container {
                 flex-direction: column;
             }
+
+            .timeline-box {
+                width: 100%;
+                max-width: 100%; 
+                box-sizing: border-box;
+                overflow-x: scroll;
+            }
+
+            .timeline-wrapper {
+                padding-left: 40px; 
+                width: 500px
+            }
+
+            .info-thumbnail {
+                width: 100%;
+                height: 190px;
+        }
         }
     </style>
 </head>
 
 <body>
-    <a href="index.html" id="title"><h1 >AGFos!</h1></a>
+    <a href="index.html" id="title">
+        <h1>AGFos!</h1>
+    </a>
 
     <nav class="nav-column">
         <a href="index.html">●</a>
@@ -470,7 +530,10 @@
                 <div class="white-box" id="AG">
                     <img src="AG_sprite.png" alt="AG">
                     <div class="characterdescription">
-                        <div class="c_name"><h1 class="name">AG</h1><h3 class="sub_name">アージー</h3></div> 
+                        <div class="c_name">
+                            <h1 class="name">AG</h1>
+                            <h3 class="sub_name">アージー</h3>
+                        </div>
                         <p class="full_name">Argie christophe</p>
                         <hr>
                         <p>術師 団員 学生<br>性別/男<br>身長/153cm<br>年齢/18歳(推定)<br>誕生日/不明<br>血液型/A型<br><br>キャラクター説明文が入ります。<br>キャラクター説明文が入ります。<br>キャラクター説明文が入ります。<br>キャラクター説明文が入ります。</p>
@@ -480,7 +543,10 @@
 
                 <div class="white-box" id="Fos">
                     <div class="characterdescription">
-                        <div class="c_name"><h1 class="name">Fos</h1><h3 class="sub_name">フォス</h3></div> 
+                        <div class="c_name">
+                            <h1 class="name">Fos</h1>
+                            <h3 class="sub_name">フォス</h3>
+                        </div>
                         <p class="full_name">Fossis Crane</p>
                         <hr>
                         <p>術師 団員<br>性別/男<br>身長/179cm<br>年齢/29歳<br>誕生日/3月16日<br>血液型/A型<br><br>キャラクター説明文が入ります。<br>キャラクター説明文が入ります。<br>キャラクター説明文が入ります。<br>キャラクター説明文が入ります。</p>
@@ -515,12 +581,11 @@
                     </div>
                 </div>
             </div>
-        <div id="by"><a href="https://hic-shi.github.io/HOME/index.html">©HIC_SHI</a></div>
+            <div id="by"><a href="https://hic-shi.github.io/HOME/index.html">©HIC_SHI</a></div>
         </div>
     </div>
 
     <script>
-        // スクリプト部分は変更なしのため維持
         const pcImages = ["PC_1.png", "PC_2.png", "PC_3.png"];
         const spImages = ["D_1.png", "D_2.png", "D_3.png"];
         let currentIndex = 0;
@@ -535,22 +600,24 @@
             frontImg.style.opacity = 0;
             setTimeout(() => {
                 frontImg.src = currentArray[nextIndex];
-                frontImg.style.transition = 'none'; 
+                frontImg.style.transition = 'none';
                 frontImg.style.opacity = 1;
-                setTimeout(() => { frontImg.style.transition = 'opacity 1.5s ease-in-out'; }, 50);
+                setTimeout(() => {
+                    frontImg.style.transition = 'opacity 1.5s ease-in-out';
+                }, 50);
                 currentIndex = nextIndex;
             }, 1500);
         }
+
         function initSlideshow() {
             const isMobile = window.innerWidth <= 600;
             const currentArray = isMobile ? spImages : pcImages;
-            if(frontImg) frontImg.src = currentArray[0];
-            if(backImg) backImg.src = currentArray[1 % currentArray.length];
+            if (frontImg) frontImg.src = currentArray[0];
+            if (backImg) backImg.src = currentArray[1 % currentArray.length];
         }
         initSlideshow();
         setInterval(updateSlideshow, 7000);
 
-        // News fetch
         fetch('news.json').then(res => res.json()).then(data => {
             const container = document.getElementById('news-container');
             data.slice(0, 1).forEach(item => {
@@ -562,7 +629,6 @@
             });
         }).catch(e => console.log("News error"));
 
-        // --- Timeline ---
         const GRID_SIZE = 20;
         const OFFSET_X = 60;
         fetch('timeline.json').then(res => res.json()).then(data => {
@@ -622,6 +688,7 @@
                 linkList.appendChild(a);
             }
         }
+
         function initDetail() {
             const infoSection = document.getElementById('extra-info');
             infoSection.style.visibility = 'visible';
@@ -629,7 +696,7 @@
             document.getElementById('info-description').textContent = "タイムラインをタップすると、作品の詳細情報が表示されます。";
             document.getElementById('info-meta').textContent = "- / -";
             const linkList = document.getElementById('info-links');
-            linkList.innerHTML = ''; 
+            linkList.innerHTML = '';
             const noneTag = document.createElement('a');
             noneTag.style.cssText = "display:inline-block; color:#fff; background:#ffbe14; margin-right:10px; padding:2px 10px; border-radius:15px; font-size:11px; font-weight:bold;";
             noneTag.textContent = "NONE";
@@ -637,17 +704,21 @@
         }
         initDetail();
     </script>
-    
-    <script type="text/javascript">
-    //右クリック禁止
-    document.oncontextmenu = function(){ return false; };
-    document.body.oncontextmenu = "return false;"
 
-    //ドラッグ禁止
-    document.onselectstart = function(){ return false; };
-    document.onmousedown = function(){ return false; };
-    document.body.onselectstart = "return false;"
-    document.body.onmousedown = "return false;"
+    <script type="text/javascript">
+        document.oncontextmenu = function () {
+            return false;
+        };
+        document.body.oncontextmenu = "return false;"
+        document.onselectstart = function () {
+            return false;
+        };
+        document.onmousedown = function () {
+            return false;
+        };
+        document.body.onselectstart = "return false;"
+        document.body.onmousedown = "return false;"
     </script>
 </body>
+
 </html>
