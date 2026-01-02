@@ -669,7 +669,7 @@
         function showDetail(work) {
             document.getElementById('info-title').textContent = work.title;
             document.getElementById('info-meta').textContent = `${work.date} / ${work.time_id} [${work.category}]`;
-            document.getElementById('info-description').textContent = work.description || "せつめいが入ります。";
+            document.getElementById('info-description').textContent = work.description || "";
 
             const thumbContainer = document.getElementById('info-thumbnail');
             thumbContainer.innerHTML = '';
