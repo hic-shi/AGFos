@@ -125,16 +125,14 @@ function renderCharacterCards() {
         card.id = char.id;
 
         card.innerHTML = `
-            <div class="card-header">
-                <img src="${char.img}" alt="${char.name}">
-                <div class="card-header-info">
-                    <div class="c_name">
-                        <h1 class="name">${char.name}</h1>
-                        <h3 class="sub_name">${char.subName}</h3>
-                    </div>
-                    <p class="full_name">${char.fullName}</p>
-                    <p class="profile-summary">${char.profile}</p>
+            <img class="card-main-img" src="${char.img}" alt="${char.name}">
+            <div class="card-header-info">
+                <div class="c_name">
+                    <h1 class="name">${char.name}</h1>
+                    <h3 class="sub_name">${char.subName}</h3>
                 </div>
+                <p class="full_name">${char.fullName}</p>
+                <p class="profile-summary">${char.profile}</p>
             </div>
             <hr>
             <div class="card-body">
