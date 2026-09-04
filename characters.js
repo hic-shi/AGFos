@@ -87,6 +87,8 @@ function renderCharacterCards() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderCharacterCards);
+} else {
     renderCharacterCards();
-});
+}
