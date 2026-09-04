@@ -25,7 +25,6 @@
                 <div class="white-box" id="white-box1">
                     <h3>news</h3>
                     <div id="news-container"></div>
-                    <a class="more" id="morenews" href="news.html">more→</a>
                 </div>
                 <div id="slideshow-container">
                     <img id="slideshow-image-back" class="slideshow-image" src="" alt="">
@@ -43,12 +42,6 @@
                 <button class="slider-nav-btn prev" id="prevBtn" aria-label="Previous">
                     <span class="slider-arrow"></span>
                 </button>
-
-                <div class="click-layer">
-                    <div class="click-area prev" id="clickPrev"></div>
-                    <div class="click-area center"></div>
-                    <div class="click-area next" id="clickNext"></div>
-                </div>
 
                 <div class="character-slider" id="slider"></div>
 
@@ -89,6 +82,13 @@
     <script src="characters.js"></script>
 
     <script>
+        const sliderArea = document.getElementById('sliderWrapper');
+        if (sliderArea) {
+            sliderArea.addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+            });
+        }
+
         // スライドショー
         const pcImages = ["bgimg/PC_1.png", "bgimg/PC_2.png", "bgimg/PC_3.png"];
         const spImages = ["bgimg/D_1.png", "bgimg/D_2.png", "bgimg/D_3.png"];
