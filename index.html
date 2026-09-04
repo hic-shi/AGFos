@@ -89,6 +89,7 @@
     <script src="characters.js"></script>
 
     <script>
+        // スライドショー
         const pcImages = ["bgimg/PC_1.png", "bgimg/PC_2.png", "bgimg/PC_3.png"];
         const spImages = ["bgimg/D_1.png", "bgimg/D_2.png", "bgimg/D_3.png"];
         let currentIndex = 0;
@@ -99,17 +100,19 @@
             const isMobile = window.innerWidth <= 600;
             const currentArray = isMobile ? spImages : pcImages;
             const nextIndex = (currentIndex + 1) % currentArray.length;
-            backImg.src = currentArray[nextIndex];
-            frontImg.style.opacity = 0;
-            setTimeout(() => {
-                frontImg.src = currentArray[nextIndex];
-                frontImg.style.transition = 'none';
-                frontImg.style.opacity = 1;
+            if (backImg) backImg.src = currentArray[nextIndex];
+            if (frontImg) {
+                frontImg.style.opacity = 0;
                 setTimeout(() => {
-                    frontImg.style.transition = 'opacity 1.5s ease-in-out';
-                }, 50);
-                currentIndex = nextIndex;
-            }, 1500);
+                    frontImg.src = currentArray[nextIndex];
+                    frontImg.style.transition = 'none';
+                    frontImg.style.opacity = 1;
+                    setTimeout(() => {
+                        frontImg.style.transition = 'opacity 1.5s ease-in-out';
+                    }, 50);
+                    currentIndex = nextIndex;
+                }, 1500);
+            }
         }
 
         function initSlideshow() {
@@ -121,22 +124,95 @@
         initSlideshow();
         setInterval(updateSlideshow, 7000);
 
+        // ニュース
         fetch('news.json').then(res => res.json()).then(data => {
             const container = document.getElementById('news-container');
-            data.slice(0, 1).forEach(item => {
-                const a = document.createElement('a');
-                a.className = 'news-container';
-                a.innerHTML = `${item.date} <span class="category">${item.category}</span> ${item.title}`;
-                a.href = item.url;
-                container.appendChild(a);
-            });
-        }).catch(e => console.log("News error"));
+            if (container && Array.isArray(data)) {
+                data.slice(0, 1).forEach(item => {
+                    const a = document.createElement('a');
+                    a.className = 'news-container';
+                    a.innerHTML = `${item.date} <span class="category">${item.category}</span> ${item.title}`;
+                    a.href = item.url;
+                    container.appendChild(a);
+                });
+            }
+        }).catch(e => console.log("News error:", e));
 
+        // タイムライン
         const GRID_SIZE = 20;
         const OFFSET_X = 60;
         fetch('timeline.json').then(res => res.json()).then(data => {
             const area = document.getElementById('timeline-area');
-        });
+            if (!area || !Array.isArray(data)) return;
+
+            data.forEach(work => {
+                if (work.y_start !== undefined && work.y_end !== undefined) {
+                    const startPos = work.y_start * GRID_SIZE;
+                    const endPos = work.y_end * GRID_SIZE;
+                    
+                    const range = document.createElement('div');
+                    range.className = 'timeline-range';
+                    range.style.top = `${startPos}px`;
+                    range.style.height = `${endPos - startPos}px`;
+                    range.style.left = `${OFFSET_X + work.x}px`;
+                    range.onclick = () => showDetail(work);
+                    area.appendChild(range);
+
+                    [startPos, endPos].forEach(pos => {
+                        const dot = document.createElement('div');
+                        dot.className = 'dot-btn';
+                        dot.style.top = `${pos}px`;
+                        dot.style.left = `${OFFSET_X + work.x}px`;
+                        dot.style.pointerEvents = 'none';
+                        area.appendChild(dot);
+                    });
+                } else if (work.y !== undefined) {
+                    const btn = document.createElement('div');
+                    btn.className = 'dot-btn';
+                    btn.style.top = `${work.y * GRID_SIZE}px`;
+                    btn.style.left = `${OFFSET_X + work.x}px`;
+                    btn.onclick = () => showDetail(work);
+                    area.appendChild(btn);
+                }
+            });
+        }).catch(e => console.log("Timeline error:", e));
+
+        // タイムライン詳細表示関数
+        function showDetail(work) {
+            const titleEl = document.getElementById('info-title');
+            const metaEl = document.getElementById('info-meta');
+            const descEl = document.getElementById('info-description');
+            const thumbEl = document.getElementById('info-thumbnail');
+            const linkList = document.getElementById('info-links');
+
+            if (titleEl) titleEl.textContent = work.title || "";
+            if (metaEl) metaEl.textContent = `${work.date || ''} / ${work.time_id || ''} [${work.category || ''}]`;
+            if (descEl) descEl.textContent = work.description || "説明はありません。";
+
+            if (thumbEl) {
+                thumbEl.innerHTML = '';
+                if (work.image) {
+                    const img = document.createElement('img');
+                    img.src = work.image;
+                    thumbEl.appendChild(img);
+                } else {
+                    thumbEl.textContent = "画像なし";
+                }
+            }
+
+            if (linkList) {
+                linkList.innerHTML = '';
+                if (work.links) {
+                    for (const [key, url] of Object.entries(work.links)) {
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.style.cssText = "display:inline-block; color:#fff; background:#ffbe14; margin-right:10px; padding:2px 10px; border-radius:15px; font-size:11px; font-weight:bold;";
+                        a.textContent = key.toUpperCase();
+                        linkList.appendChild(a);
+                    }
+                }
+            }
+        }
     </script>
 </body>
 
