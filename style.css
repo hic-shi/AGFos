@@ -1,7 +1,7 @@
 :root {
     --bg-color: #ffd966;
     --text-color: #d4a017;
-    --hr-color: #f5b719;
+    --hr-color: #dca419;
     --card-bg: #ffffff;
     --border-color: #f5b719;
     --img-bg: #fff2c6;
@@ -35,6 +35,7 @@ hr {
     border-top: 4px solid var(--hr-color);
     width: 100%;
     margin: 10px 0;
+    margin-bottom: 0px;
 }
 
 #title {
@@ -254,14 +255,14 @@ span.category {
     background-color: var(--card-bg);
     border: 3px solid var(--border-color);
     border-radius: 20px;
-    padding: 20px;
+    padding: 15px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     position: absolute;
     width: 380px;
-    height: 480px;
-    top: 30px;
+    height: 530px;
+    top: 20px;
     left: 50%;
     margin-left: -190px;
     transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease-out;
@@ -271,6 +272,68 @@ span.category {
     user-select: none;
     -webkit-user-drag: none;
     cursor: grab;
+}
+
+.card-header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.card-main-img {
+    width: 100%;
+    aspect-ratio: 5 / 4;
+    object-fit: cover;
+    object-position: -32px 0px;
+    border-radius: 12px;
+    pointer-events: none;
+    background-color: var(--card-bg);
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+.card-header-info {
+    width: 100%;
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header-info .c_name {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    color: var(--full-name-color);
+}
+
+.card-header-info .name {
+    margin: 0;
+    font-size: 24px;
+}
+
+.card-header-info .sub_name {
+    margin: 0;
+    font-size: 15px;
+    color: var(--full-name-color);
+}
+
+.card-header-info .full_name {
+    margin: 2px 0 6px 0;
+    font-size: 12px;
+    color: var(--full-name-color);
+}
+
+.profile-summary {
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-top: 8px;
 }
 
 .char-card:active {
@@ -338,7 +401,7 @@ span.category {
 .card-header-info .sub_name {
     margin: 0;
     font-size: 16px;
-    color: var(--sub-text-color);
+    color: var(--full-name-color);
 }
 
 .card-header-info .full_name {
@@ -350,7 +413,7 @@ span.category {
 .profile-summary {
     font-size: 13px;
     line-height: 1.5;
-    color: var(--text-color);
+    color: var(--full-name-color);
     margin: 0;
 }
 
@@ -359,6 +422,7 @@ span.category {
     flex-direction: column;
     flex: 1;
     margin-top: 10px;
+    color: var(--full-name-color);
 }
 
 .card-body .c_description {
