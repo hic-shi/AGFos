@@ -15,10 +15,21 @@
     "x": 0, 
     "date": "2025.08.01",
     "time_id": "3-2", 
-    "category": "illustration", 
+    "category": "Music video", 
     "title": "#0000", 
     "description": "楽曲をお借りしました。", 
     "image": "https://pbs.twimg.com/media/G9q2rW2bEAAkiC7?format=jpg",
     "links": {"youtube": "https://youtu.be/GE1LFfU45aY?si=FJq8yQn7l7MHEelW"} 
+  },
+  { 
+    "y": 15, 
+    "x": 1, 
+    "date": "2026.09.10",
+    "time_id": "3-1", 
+    "category": "Illustration", 
+    "title": "#0002", 
+    "description": "早朝。湖の前にいた。", 
+    "image": "https://pbs.twimg.com/media/G9q2rW2bEAAkiC7?format=jpg",
+    "links": {"#0002": "","pixsiv": "https://www.pixiv.net/artworks/149490644"} 
   }
 ]
