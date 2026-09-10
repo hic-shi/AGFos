@@ -8,7 +8,7 @@
     "title": "#0001", 
     "description": "年末年始という休日に動画をあげられなかった代わりに、ミニアニメを作成しました🎞️ AGのかわいい一面が満載です。", 
     "image": "https://pbs.twimg.com/media/G9q229tbQAEvIcs?format=png",
-    "links": {"X": "https://x.com/nemi_note/status/2007116268504289579","youtube":"https://youtu.be/BHjgeFxF0J8" ,"pixiv":"https://www.pixiv.net/artworks/139454006"} 
+    "links": {"#0001": "","X": "https://x.com/nemi_note/status/2007116268504289579","youtube":"https://youtu.be/BHjgeFxF0J8" ,"pixiv":"https://www.pixiv.net/artworks/139454006"} 
   },
   { 
     "y": 17, 
@@ -19,7 +19,7 @@
     "title": "#0000", 
     "description": "楽曲をお借りしました。", 
     "image": "https://pbs.twimg.com/media/G9q2rW2bEAAkiC7?format=jpg",
-    "links": {"youtube": "https://youtu.be/GE1LFfU45aY?si=FJq8yQn7l7MHEelW"} 
+    "links": {"#0000": "","youtube": "https://youtu.be/GE1LFfU45aY?si=FJq8yQn7l7MHEelW"} 
   },
   { 
     "y": 15, 
@@ -29,7 +29,7 @@
     "category": "Illustration", 
     "title": "#0002", 
     "description": "早朝。湖の前にいた。", 
-    "image": "https://pbs.twimg.com/media/G9q2rW2bEAAkiC7?format=jpg",
+    "image": "https://pbs.twimg.com/media/HR0Z2upbsAAeD_S?format=jpg&name=4096x4096",
     "links": {"#0002": "","pixsiv": "https://www.pixiv.net/artworks/149490644"} 
   }
 ]
