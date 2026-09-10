@@ -5,7 +5,7 @@
     "date": "2026.01.03", 
     "time_id": "1-1", 
     "category": "Movie", 
-    "title": "#0001", 
+    "title": "むち。", 
     "description": "年末年始という休日に動画をあげられなかった代わりに、ミニアニメを作成しました🎞️ AGのかわいい一面が満載です。", 
     "image": "https://pbs.twimg.com/media/G9q229tbQAEvIcs?format=png",
     "links": {"#0001": "","X": "https://x.com/nemi_note/status/2007116268504289579","youtube":"https://youtu.be/BHjgeFxF0J8" ,"pixiv":"https://www.pixiv.net/artworks/139454006"} 
@@ -16,7 +16,7 @@
     "date": "2025.08.01",
     "time_id": "3-2", 
     "category": "Music video", 
-    "title": "#0000", 
+    "title": "死別", 
     "description": "楽曲をお借りしました。", 
     "image": "https://pbs.twimg.com/media/G9q2rW2bEAAkiC7?format=jpg",
     "links": {"#0000": "","youtube": "https://youtu.be/GE1LFfU45aY?si=FJq8yQn7l7MHEelW"} 
@@ -27,19 +27,19 @@
     "date": "2026.09.10",
     "time_id": "3-1", 
     "category": "Illustration", 
-    "title": "#0002", 
-    "description": "早朝。湖の前にいた。", 
+    "title": "早朝", 
+    "description": "湖の前にいた。", 
     "image": "https://pbs.twimg.com/media/HR0Z2upbsAAeD_S?format=jpg&name=4096x4096",
     "links": {"#0002": "","pixsiv": "https://www.pixiv.net/artworks/149490644"} 
   },
   { 
-    "y": 5, 
-    "x": 3, 
+    "y": 1, 
+    "x": 6, 
     "date": "2026.09.10",
     "time_id": "1-2", 
     "category": "Illustration", 
     "title": "落書き-2", 
-    "description": "早朝。湖の前にいた。", 
+    "description": "ﾂｲｯﾀｰの2枚をまとめた。", 
     "image": "https://pbs.twimg.com/media/HRQJqM4aEAAhiXZ?format=jpg&name=large",
     "links": {"#0003": "","pixsiv": "https://www.pixiv.net/artworks/149490655"} 
   }
