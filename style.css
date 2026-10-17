@@ -548,7 +548,6 @@ a.more-link:hover {
     height: 12px;
     background-color: var(--bg-color);
     border: 2px solid var(--text-color);
-    border-radius: 50%;
     cursor: pointer;
     z-index: 10;
     transition: 0.3s;
