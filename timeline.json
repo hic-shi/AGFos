@@ -11,6 +11,28 @@
     "links": {"#0001": "","X": "https://x.com/nemi_note/status/2007116268504289579","youtube":"https://youtu.be/BHjgeFxF0J8" ,"pixiv":"https://www.pixiv.net/artworks/139454006"} 
   },
   { 
+    "y": 1, 
+    "x": 16, 
+    "date": "2026.09.10",
+    "time_id": "1-2", 
+    "category": "Illustration", 
+    "title": "落書き-2", 
+    "description": "ﾂｲｯﾀｰの2枚をまとめた。", 
+    "image": "https://pbs.twimg.com/media/HRQJqM4aEAAhiXZ?format=jpg&name=large",
+    "links": {"#0003": "","pixsiv": "https://www.pixiv.net/artworks/149490655"} 
+  },
+  { 
+    "y": 8, 
+    "x": 0, 
+    "date": "2026.10.18",
+    "time_id": "2-1", 
+    "category": "Illustration", 
+    "title": "落書き-3", 
+    "description": "", 
+    "image": "https://pbs.twimg.com/media/HU2y9KLbkAA8ehx?format=png&name=large",
+    "links": {"#0004": "","pixsiv": "https://www.pixiv.net/artworks/150979344"} 
+  },
+  { 
     "y": 17, 
     "x": 0, 
     "date": "2025.08.01",
@@ -31,16 +53,5 @@
     "description": "湖の前にいた。", 
     "image": "https://pbs.twimg.com/media/HR0Z2upbsAAeD_S?format=jpg&name=4096x4096",
     "links": {"#0002": "","pixsiv": "https://www.pixiv.net/artworks/149490644"} 
-  },
-  { 
-    "y": 1, 
-    "x": 6, 
-    "date": "2026.09.10",
-    "time_id": "1-2", 
-    "category": "Illustration", 
-    "title": "落書き-2", 
-    "description": "ﾂｲｯﾀｰの2枚をまとめた。", 
-    "image": "https://pbs.twimg.com/media/HRQJqM4aEAAhiXZ?format=jpg&name=large",
-    "links": {"#0003": "","pixsiv": "https://www.pixiv.net/artworks/149490655"} 
   }
 ]
